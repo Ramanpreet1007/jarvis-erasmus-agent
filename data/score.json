@@ -1,0 +1,9 @@
+{
+  "routes_right": 9,
+  "routes_total": 10,
+  "fields_right": 47,
+  "fields_total": 47,
+  "failures": [
+    "03_maria: routed ['filed', 'handoff'], expected ['filed']"
+  ]
+}

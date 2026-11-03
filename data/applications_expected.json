@@ -1,0 +1,2270 @@
+{
+ "emails": {
+  "app_001": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Adam",
+    "surname": "Vidal",
+    "last_semester_average": 7.2,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.2",
+    "failed_subjects": [
+     "Physics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_002": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Pablo",
+    "surname": "Ortega",
+    "last_semester_average": 9.1,
+    "scale_max": null,
+    "grade_quote": "9.1",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_003": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Marta",
+    "surname": "Holm",
+    "last_semester_average": 6.7,
+    "scale_max": null,
+    "grade_quote": "6.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Germany",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_004": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Fischer",
+    "last_semester_average": 6.9,
+    "scale_max": null,
+    "grade_quote": "6.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_005": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Paolo",
+    "surname": "Costa",
+    "last_semester_average": 9.0,
+    "scale_max": null,
+    "grade_quote": "9.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany",
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_006": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Pablo",
+    "surname": "Conti",
+    "last_semester_average": 8.5,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.5",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_007": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Jonas",
+    "surname": "Costa",
+    "last_semester_average": 8.5,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.5",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Spain",
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_008": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Tomas",
+    "surname": "Dubois",
+    "last_semester_average": 7.3,
+    "scale_max": null,
+    "grade_quote": "7.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_009": {
+   "decision": "other",
+   "extraction": {
+    "is_application": false,
+    "first_name": "Diego",
+    "surname": "Meyer",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": null,
+    "english_level": null,
+    "preferred_countries": [],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_010": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Julia",
+    "surname": "Petit",
+    "last_semester_average": 9.0,
+    "scale_max": null,
+    "grade_quote": "9.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_011": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Lind",
+    "last_semester_average": 8.5,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.5",
+    "failed_subjects": [
+     "Microeconomics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_012": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Hanna",
+    "surname": "Petit",
+    "last_semester_average": 9.1,
+    "scale_max": null,
+    "grade_quote": "9.1",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Spain",
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_013": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Hanna",
+    "surname": "Dubois",
+    "last_semester_average": 5.4,
+    "scale_max": null,
+    "grade_quote": "5.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Italy",
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_014": {
+   "decision": "review",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Paolo",
+    "surname": "Kowal",
+    "last_semester_average": 7.6,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.6",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": true
+   }
+  },
+  "app_015": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Clara",
+    "surname": "Keller",
+    "last_semester_average": 5.0,
+    "scale_max": null,
+    "grade_quote": "5.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Austria",
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_016": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Elena",
+    "surname": "Moreau",
+    "last_semester_average": 5.8,
+    "scale_max": null,
+    "grade_quote": "5.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_017": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Dubois",
+    "last_semester_average": 7.2,
+    "scale_max": null,
+    "grade_quote": "7.2",
+    "failed_subjects": [
+     "Mathematics II",
+     "Statistics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "I failed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Belgium",
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_018": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Larsen",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "No failed subjects",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_019": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Fischer",
+    "last_semester_average": 6.6,
+    "scale_max": null,
+    "grade_quote": "6.6",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Germany",
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_020": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Lena",
+    "surname": "Horvat",
+    "last_semester_average": 6.9,
+    "scale_max": null,
+    "grade_quote": "6.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Italy",
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_021": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Mateo",
+    "surname": "Petit",
+    "last_semester_average": 9.4,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 9.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_022": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Oskar",
+    "surname": "Costa",
+    "last_semester_average": 6.7,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 6.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_023": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Petit",
+    "last_semester_average": 7.7,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_024": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Diego",
+    "surname": "Fischer",
+    "last_semester_average": 8.0,
+    "scale_max": null,
+    "grade_quote": "8.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Denmark",
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_025": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Eva",
+    "surname": "Dubois",
+    "last_semester_average": 6.5,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 6.5",
+    "failed_subjects": [
+     "Algorithms"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_026": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Felix",
+    "surname": "Bauer",
+    "last_semester_average": 6.8,
+    "scale_max": null,
+    "grade_quote": "6.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Italy",
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_027": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Tomas",
+    "surname": "Santos",
+    "last_semester_average": 4.9,
+    "scale_max": null,
+    "grade_quote": "4.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Denmark",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_028": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Mateo",
+    "surname": "Berg",
+    "last_semester_average": 8.0,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.0",
+    "failed_subjects": [
+     "Physics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Netherlands",
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_029": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Santos",
+    "last_semester_average": 7.3,
+    "scale_max": null,
+    "grade_quote": "7.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_030": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Tomas",
+    "surname": "Horvat",
+    "last_semester_average": 8.0,
+    "scale_max": null,
+    "grade_quote": "8.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_031": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Greta",
+    "surname": "Ortega",
+    "last_semester_average": 5.0,
+    "scale_max": null,
+    "grade_quote": "5.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_032": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Moreau",
+    "last_semester_average": 8.7,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Italy",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_033": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Hanna",
+    "surname": "Costa",
+    "last_semester_average": 9.5,
+    "scale_max": null,
+    "grade_quote": "9.5",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_034": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Marta",
+    "surname": "Moreau",
+    "last_semester_average": 6.4,
+    "scale_max": null,
+    "grade_quote": "6.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Italy",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_035": {
+   "decision": "other",
+   "extraction": {
+    "is_application": false,
+    "first_name": "Diego",
+    "surname": "Keller",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": null,
+    "english_level": null,
+    "preferred_countries": [],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_036": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Jonas",
+    "surname": "Dubois",
+    "last_semester_average": 5.8,
+    "scale_max": null,
+    "grade_quote": "5.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_037": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Holm",
+    "last_semester_average": 8.2,
+    "scale_max": null,
+    "grade_quote": "8.2",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_038": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Kowal",
+    "last_semester_average": 8.3,
+    "scale_max": null,
+    "grade_quote": "8.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Belgium",
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_039": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Elena",
+    "surname": "Weber",
+    "last_semester_average": 7.6,
+    "scale_max": null,
+    "grade_quote": "7.6",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany",
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_040": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Bauer",
+    "last_semester_average": 4.3,
+    "scale_max": null,
+    "grade_quote": "4.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Germany",
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_041": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Nina",
+    "surname": "Holm",
+    "last_semester_average": 8.5,
+    "scale_max": null,
+    "grade_quote": "8.5",
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Finland",
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_042": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Meyer",
+    "last_semester_average": 6.8,
+    "scale_max": null,
+    "grade_quote": "6.8",
+    "failed_subjects": [
+     "Accounting",
+     "Mathematics II"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "I failed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_043": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Adam",
+    "surname": "Bauer",
+    "last_semester_average": 7.1,
+    "scale_max": null,
+    "grade_quote": "7.1",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany",
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_044": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Marta",
+    "surname": "Novak",
+    "last_semester_average": 7.8,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Spain",
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_045": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Luca",
+    "surname": "Vidal",
+    "last_semester_average": 7.4,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Denmark",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_046": {
+   "decision": "other",
+   "extraction": {
+    "is_application": false,
+    "first_name": "Elena",
+    "surname": "Lind",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": null,
+    "english_level": null,
+    "preferred_countries": [],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_047": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Felix",
+    "surname": "Nowak",
+    "last_semester_average": 6.7,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 6.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Germany",
+     "Spain"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_048": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Vidal",
+    "last_semester_average": 4.6,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 4.6",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_049": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Elena",
+    "surname": "Petit",
+    "last_semester_average": 7.9,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.9",
+    "failed_subjects": [
+     "Statistics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_050": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Clara",
+    "surname": "Kowal",
+    "last_semester_average": 7.7,
+    "scale_max": null,
+    "grade_quote": "7.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_051": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Elena",
+    "surname": "Bauer",
+    "last_semester_average": 8.7,
+    "scale_max": null,
+    "grade_quote": "8.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_052": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Eva",
+    "surname": "Ortega",
+    "last_semester_average": 6.9,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 6.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_053": {
+   "decision": "review",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Lind",
+    "last_semester_average": 90.0,
+    "scale_max": 100.0,
+    "grade_quote": "90/100",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "no failed subjects",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_054": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Tomas",
+    "surname": "Meyer",
+    "last_semester_average": 9.0,
+    "scale_max": null,
+    "grade_quote": "9.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Finland",
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_055": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Alice",
+    "surname": "Larsen",
+    "last_semester_average": 7.9,
+    "scale_max": null,
+    "grade_quote": "7.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "No tengo asignaturas suspendidas.",
+    "language": "es",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_056": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Novak",
+    "last_semester_average": 8.5,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.5",
+    "failed_subjects": [
+     "Accounting"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_057": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Julia",
+    "surname": "Lind",
+    "last_semester_average": 4.8,
+    "scale_max": null,
+    "grade_quote": "4.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Italy",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_058": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Viktor",
+    "surname": "Novak",
+    "last_semester_average": 7.8,
+    "scale_max": null,
+    "grade_quote": "7.8",
+    "failed_subjects": [
+     "Statistics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "I failed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Finland",
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_059": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Keller",
+    "last_semester_average": 7.7,
+    "scale_max": null,
+    "grade_quote": "7.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_060": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Pablo",
+    "surname": "Novak",
+    "last_semester_average": 7.4,
+    "scale_max": null,
+    "grade_quote": "7.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_061": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Mateo",
+    "surname": "Novak",
+    "last_semester_average": 6.8,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 6.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_062": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Greta",
+    "surname": "Silva",
+    "last_semester_average": 6.8,
+    "scale_max": null,
+    "grade_quote": "6.8",
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Spain",
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_063": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Petit",
+    "last_semester_average": 7.6,
+    "scale_max": null,
+    "grade_quote": "7.6",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_064": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Marin",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "No failed subjects",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Austria",
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_065": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sofia",
+    "surname": "Rossi",
+    "last_semester_average": 5.2,
+    "scale_max": null,
+    "grade_quote": "5.2",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_066": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Berg",
+    "last_semester_average": 4.0,
+    "scale_max": null,
+    "grade_quote": "4.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Germany",
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_067": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Lena",
+    "surname": "Ortega",
+    "last_semester_average": 5.2,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 5.2",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_068": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Tomas",
+    "surname": "Fischer",
+    "last_semester_average": 8.6,
+    "scale_max": null,
+    "grade_quote": "8.6",
+    "failed_subjects": [
+     "Accounting"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "I failed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Italy",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_069": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Adam",
+    "surname": "Marin",
+    "last_semester_average": 7.1,
+    "scale_max": null,
+    "grade_quote": "7.1",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_070": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Diego",
+    "surname": "Larsen",
+    "last_semester_average": 6.5,
+    "scale_max": null,
+    "grade_quote": "6.5",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Denmark",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_071": {
+   "decision": "review",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Julia",
+    "surname": "Ortega",
+    "last_semester_average": 8.4,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Germany",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": true
+   }
+  },
+  "app_072": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Eva",
+    "surname": "Silva",
+    "last_semester_average": 9.1,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 9.1",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Denmark",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_073": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Alice",
+    "surname": "Novak",
+    "last_semester_average": 6.9,
+    "scale_max": null,
+    "grade_quote": "6.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_074": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Alice",
+    "surname": "Berg",
+    "last_semester_average": 8.8,
+    "scale_max": null,
+    "grade_quote": "8.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "no failed subjects",
+    "language": "en",
+    "field_of_study": null,
+    "english_level": null,
+    "preferred_countries": [],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_075": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Paolo",
+    "surname": "Dubois",
+    "last_semester_average": 6.7,
+    "scale_max": null,
+    "grade_quote": "6.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Finland",
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_076": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Lena",
+    "surname": "Nowak",
+    "last_semester_average": 7.7,
+    "scale_max": null,
+    "grade_quote": "7.7",
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_077": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Felix",
+    "surname": "Holm",
+    "last_semester_average": 9.0,
+    "scale_max": null,
+    "grade_quote": "9.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Denmark",
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_078": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Hanna",
+    "surname": "Berg",
+    "last_semester_average": 5.0,
+    "scale_max": null,
+    "grade_quote": "5.0",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Netherlands",
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_079": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Sara",
+    "surname": "Dubois",
+    "last_semester_average": 7.7,
+    "scale_max": null,
+    "grade_quote": "7.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Denmark",
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_080": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Diego",
+    "surname": "Berg",
+    "last_semester_average": 5.4,
+    "scale_max": null,
+    "grade_quote": "5.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Spain",
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_081": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Marco",
+    "surname": "Novak",
+    "last_semester_average": 5.2,
+    "scale_max": null,
+    "grade_quote": "5.2",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_082": {
+   "decision": "other",
+   "extraction": {
+    "is_application": false,
+    "first_name": "Tomas",
+    "surname": "Keller",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": false,
+    "failed_status_quote": null,
+    "language": "en",
+    "field_of_study": null,
+    "english_level": null,
+    "preferred_countries": [],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_083": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Clara",
+    "surname": "Holm",
+    "last_semester_average": 4.3,
+    "scale_max": null,
+    "grade_quote": "4.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "No tengo asignaturas suspendidas.",
+    "language": "es",
+    "field_of_study": "Engineering",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_084": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Lena",
+    "surname": "Costa",
+    "last_semester_average": 7.4,
+    "scale_max": null,
+    "grade_quote": "7.4",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Denmark",
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_085": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Paolo",
+    "surname": "Ricci",
+    "last_semester_average": 6.3,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 6.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Austria",
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_086": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Eva",
+    "surname": "Berg",
+    "last_semester_average": 5.8,
+    "scale_max": null,
+    "grade_quote": "5.8",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Finland",
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_087": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Silva",
+    "last_semester_average": null,
+    "scale_max": null,
+    "grade_quote": null,
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "No failed subjects",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_088": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Mateo",
+    "surname": "Moreau",
+    "last_semester_average": 6.3,
+    "scale_max": null,
+    "grade_quote": "6.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Denmark",
+     "Finland"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_089": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Fischer",
+    "last_semester_average": 7.8,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.8",
+    "failed_subjects": [
+     "Physics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_090": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Marta",
+    "surname": "Bauer",
+    "last_semester_average": 8.6,
+    "scale_max": null,
+    "grade_quote": "8.6",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Belgium",
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_091": {
+   "decision": "needs_info",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Diego",
+    "surname": "Ortega",
+    "last_semester_average": 7.5,
+    "scale_max": null,
+    "grade_quote": "7.5",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "no failed subjects",
+    "language": "en",
+    "field_of_study": null,
+    "english_level": null,
+    "preferred_countries": [],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_092": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Vidal",
+    "last_semester_average": 6.3,
+    "scale_max": null,
+    "grade_quote": "6.3",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "Non ho esami falliti.",
+    "language": "it",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Denmark",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_093": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Lena",
+    "surname": "Ricci",
+    "last_semester_average": 6.3,
+    "scale_max": null,
+    "grade_quote": "6.3",
+    "failed_subjects": [
+     "Mathematics II"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "I failed",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Spain",
+     "Netherlands"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_094": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Clara",
+    "surname": "Nowak",
+    "last_semester_average": 4.1,
+    "scale_max": null,
+    "grade_quote": "4.1",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_095": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Adam",
+    "surname": "Santos",
+    "last_semester_average": 7.3,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.3",
+    "failed_subjects": [
+     "Statistics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Germany",
+     "Italy"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_096": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Alice",
+    "surname": "Meyer",
+    "last_semester_average": 6.2,
+    "scale_max": null,
+    "grade_quote": "6.2",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Denmark"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_097": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Lena",
+    "surname": "Keller",
+    "last_semester_average": 6.7,
+    "scale_max": null,
+    "grade_quote": "6.7",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "I have no failed subjects.",
+    "language": "en",
+    "field_of_study": "Engineering",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Belgium"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_098": {
+   "decision": "eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Diego",
+    "surname": "Silva",
+    "last_semester_average": 8.9,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 8.9",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "passed",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "C1",
+    "preferred_countries": [
+     "Austria"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_099": {
+   "decision": "review",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Pablo",
+    "surname": "Meyer",
+    "last_semester_average": 80.0,
+    "scale_max": 100.0,
+    "grade_quote": "80/100",
+    "failed_subjects": [],
+    "failed_status_known": true,
+    "failed_status_quote": "no failed subjects",
+    "language": "en",
+    "field_of_study": "Business",
+    "english_level": "B1",
+    "preferred_countries": [
+     "Germany"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  },
+  "app_100": {
+   "decision": "not_eligible",
+   "extraction": {
+    "is_application": true,
+    "first_name": "Ines",
+    "surname": "Nowak",
+    "last_semester_average": 7.6,
+    "scale_max": null,
+    "grade_quote": "Last semester average: 7.6",
+    "failed_subjects": [
+     "Physics",
+     "Microeconomics"
+    ],
+    "failed_status_known": true,
+    "failed_status_quote": "FAILED",
+    "language": "en",
+    "field_of_study": "Computer Science",
+    "english_level": "B2",
+    "preferred_countries": [
+     "Portugal"
+    ],
+    "confidence": 0.95,
+    "suspicious_content": false
+   }
+  }
+ }
+}

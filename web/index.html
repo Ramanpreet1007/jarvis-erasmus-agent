@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erasmus Inbox Agent</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📬</text></svg>">
+<style>
+:root {
+  color-scheme: light;
+  --bg:#f3f5fb; --bg-2:#e9eefa; --surface:#ffffff; --surface-2:#f6f8fd; --ink:#101a33; --muted:#5a6580; --line:#dfe5f1;
+  --brand:#2f5bff; --brand-2:#7a4dff; --on-brand:#ffffff;
+  --good:#047857; --good-bg:#d1fae5; --bad:#c02626; --bad-bg:#fee2e2; --ask:#955a06; --ask-bg:#fef3c7; --person:#1d4ed8; --person-bg:#dbeafe; --plain:#475569; --plain-bg:#e8ecf3;
+  --shadow:0 1px 2px rgba(16,26,51,.05), 0 10px 30px rgba(16,26,51,.08);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:#080d1c; --bg-2:#0e1630; --surface:#121b36; --surface-2:#18233f; --ink:#eef2fc; --muted:#a2aec8; --line:#27334f;
+  --brand:#6f8fff; --brand-2:#a585ff; --on-brand:#0a1023;
+  --good:#4ade9f; --good-bg:#0f3a2d; --bad:#fb8f8f; --bad-bg:#431a1f; --ask:#fbc94e; --ask-bg:#3d2f0d; --person:#8fb4ff; --person-bg:#16295a; --plain:#b7c1d6; --plain-bg:#27334f;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 34px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg:#080d1c; --bg-2:#0e1630; --surface:#121b36; --surface-2:#18233f; --ink:#eef2fc; --muted:#a2aec8; --line:#27334f;
+    --brand:#6f8fff; --brand-2:#a585ff; --on-brand:#0a1023;
+    --good:#4ade9f; --good-bg:#0f3a2d; --bad:#fb8f8f; --bad-bg:#431a1f; --ask:#fbc94e; --ask-bg:#3d2f0d; --person:#8fb4ff; --person-bg:#16295a; --plain:#b7c1d6; --plain-bg:#27334f;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 34px rgba(0,0,0,.35);
+  }
+}
+* { box-sizing:border-box; }
+html, body { margin:0; }
+body { background:radial-gradient(1000px 500px at 85% -10%, var(--bg-2), transparent 70%), var(--bg); background-attachment:fixed; color:var(--ink);
+  font:16px/1.55 "Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,sans-serif; }
+h1,h2,h3 { line-height:1.15; letter-spacing:-.02em; margin:0; }
+button,input,select,textarea { font:inherit; color:inherit; }
+:focus-visible { outline:3px solid var(--brand); outline-offset:2px; border-radius:6px; }
+
+.shell { display:grid; grid-template-columns:238px minmax(0,1fr); min-height:100vh; }
+.side { position:sticky; top:0; height:100vh; padding:1.4rem 1rem; display:flex; flex-direction:column; gap:.25rem; border-right:1px solid var(--line); background:color-mix(in srgb, var(--surface) 72%, transparent); backdrop-filter:blur(12px); }
+.logo { display:flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.02rem; padding:0 .6rem 1.1rem; }
+.logo i { font-style:normal; font-size:1.5rem; }
+.nav { position:relative; display:flex; align-items:center; gap:.65rem; width:100%; text-align:left; background:none; border:0; color:var(--muted); font-weight:600; padding:.62rem .75rem; border-radius:11px; cursor:pointer; transition:color .2s, transform .2s var(--ease); white-space:nowrap; z-index:1; }
+.nav:hover { color:var(--ink); transform:translateX(3px); }
+.nav.on { color:var(--on-brand); }
+.nav .badge { margin-left:auto; font-size:.72rem; font-weight:800; background:var(--bad-bg); color:var(--bad); padding:.05rem .45rem; border-radius:99px; }
+.marker { position:absolute; top:0; left:1rem; right:1rem; height:42px; border-radius:11px; background:linear-gradient(120deg,var(--brand),var(--brand-2)); box-shadow:0 6px 18px color-mix(in srgb,var(--brand) 40%,transparent); transition:transform .35s var(--ease); }
+.side-foot { margin-top:auto; display:grid; gap:.5rem; color:var(--muted); font-size:.8rem; }
+.main { padding:1.8rem clamp(1rem,3vw,2.6rem) 4rem; min-width:0; }
+.page { animation:pageIn .4s var(--ease); max-width:1240px; margin:auto; }
+@keyframes pageIn { from { opacity:0; transform:translateY(12px); } }
+.page-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:1rem; margin-bottom:1.3rem; }
+.page-head h1 { font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; }
+.page-head p { color:var(--muted); margin:.3rem 0 0; }
+
+.hero { position:relative; overflow:hidden; border-radius:24px; padding:clamp(1.4rem,4vw,2.8rem); color:#fff; background:linear-gradient(125deg,#0d1b4d,#2546d8 60%,#6a3df0); box-shadow:var(--shadow); }
+.hero::after { content:""; position:absolute; inset:0; background:radial-gradient(500px 240px at 90% 0%,rgba(255,255,255,.2),transparent 70%); pointer-events:none; }
+.hero h1 { font-size:clamp(2rem,5vw,3.6rem); font-weight:800; max-width:17ch; }
+.hero p { color:#d9e3ff; font-size:clamp(1rem,1.6vw,1.2rem); max-width:56ch; margin:.8rem 0 1.3rem; }
+.flow { container-type:inline-size; position:relative; margin-top:1.6rem; height:96px; }
+.flow-line { position:absolute; left:0; right:0; top:62px; height:2px; background:rgba(255,255,255,.25); }
+.stage { position:absolute; top:0; transform:translateX(-50%); text-align:center; font-weight:700; font-size:.82rem; color:#fff; z-index:2; white-space:nowrap; }
+.stage b { display:grid; place-items:center; width:42px; height:42px; margin:.25rem auto 0; border-radius:13px; background:rgba(255,255,255,.17); border:1px solid rgba(255,255,255,.35); backdrop-filter:blur(5px); font-size:1.15rem; animation:pulse 3.6s infinite; }
+.stage:nth-of-type(3) b { animation-delay:1.2s; } .stage:nth-of-type(4) b { animation-delay:2.4s; }
+@keyframes pulse { 0%,70%,100% { box-shadow:0 0 0 0 rgba(255,255,255,.0); } 35% { box-shadow:0 0 0 7px rgba(255,255,255,.15); } }
+.mail { position:absolute; top:53px; left:0; width:22px; height:17px; border-radius:4px; background:#fff; opacity:0; animation:travel 7.2s linear infinite; }
+.mail::after { content:""; position:absolute; inset:2px 2px auto; height:7px; border-bottom:2px solid #9db2ff; border-radius:0 0 8px 8px; }
+@keyframes travel { 0% { transform:translateX(0); opacity:0; } 6% { opacity:1; } 62% { background:#fff; } 72% { background:var(--dot); } 92% { opacity:1; } 100% { transform:translateX(calc(100cqw - 22px)); background:var(--dot); opacity:0; } }
+
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border:1px solid var(--line); background:var(--surface); color:var(--ink); padding:.6rem 1.05rem; border-radius:12px; font-weight:650; cursor:pointer; transition:transform .18s var(--ease), box-shadow .18s, opacity .2s; }
+.btn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:var(--shadow); }
+.btn:active:not(:disabled) { transform:scale(.97); }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+.btn.primary { background:linear-gradient(120deg,var(--brand),var(--brand-2)); border:0; color:var(--on-brand); }
+.hero .btn.primary { background:#fff; color:#17329c; font-size:1.05rem; padding:.8rem 1.4rem; }
+.hero .btn.ghost { background:rgba(255,255,255,.13); border-color:rgba(255,255,255,.35); color:#fff; }
+.row { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; }
+
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.9rem; margin:1.2rem 0; }
+.stat { position:relative; overflow:hidden; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:1.05rem 1.15rem; box-shadow:var(--shadow); animation:rise .5s var(--ease) both; transition:transform .2s var(--ease); }
+.stat:hover { transform:translateY(-3px); }
+.stat::before { content:""; position:absolute; inset:0 0 auto; height:4px; background:var(--c); }
+.stat b { display:block; color:var(--c); font-size:clamp(2rem,4vw,3rem); line-height:1.1; font-weight:800; font-variant-numeric:tabular-nums; }
+.stat span { color:var(--muted); font-size:.86rem; font-weight:600; }
+@keyframes rise { from { opacity:0; transform:translateY(14px); } }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:1.2rem 1.3rem; box-shadow:var(--shadow); margin-bottom:1rem; animation:rise .45s var(--ease) both; min-width:0; }
+.card h2 { font-size:1.15rem; font-weight:750; margin-bottom:.55rem; }
+.muted { color:var(--muted); } .small { font-size:.85rem; }
+.note { color:var(--muted); font-size:.82rem; margin:.5rem 0 0; }
+.sample { display:inline-flex; font-size:.76rem; font-weight:700; color:var(--ask); background:var(--ask-bg); padding:.2rem .65rem; border-radius:99px; }
+
+.progress { height:9px; background:var(--plain-bg); border-radius:99px; overflow:hidden; margin:.7rem 0; }
+.progress div { height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,var(--brand),var(--brand-2)); transition:width .2s linear; }
+.feed-row { display:flex; justify-content:space-between; gap:1rem; align-items:center; padding:.5rem .8rem; border-radius:11px; background:var(--surface-2); margin-top:.4rem; animation:slideIn .32s var(--ease); }
+@keyframes slideIn { from { opacity:0; transform:translateX(-18px); } }
+
+.pill { display:inline-block; border-radius:99px; padding:.13rem .65rem; font-size:.78rem; font-weight:750; white-space:nowrap; }
+.pill.eligible,.pill.good { color:var(--good); background:var(--good-bg); } .pill.not_eligible,.pill.bad { color:var(--bad); background:var(--bad-bg); }
+.pill.needs_info,.pill.ask { color:var(--ask); background:var(--ask-bg); } .pill.review,.pill.info { color:var(--person); background:var(--person-bg); } .pill.other,.pill.plain { color:var(--plain); background:var(--plain-bg); }
+
+.controls { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:1.5rem; align-items:center; }
+.slider-head { display:flex; justify-content:space-between; font-weight:650; }
+.slider-head b { color:var(--brand); font-size:1.5rem; font-variant-numeric:tabular-nums; }
+input[type=range] { width:100%; accent-color:var(--brand); height:26px; cursor:grab; }
+.switch { display:flex; gap:.5rem; align-items:center; font-weight:600; cursor:pointer; }
+.switch input { width:1.1rem; height:1.1rem; accent-color:var(--brand); }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.8rem; }
+.chip { border:1px solid var(--line); background:var(--surface); border-radius:99px; padding:.32rem .8rem; font-weight:650; font-size:.85rem; cursor:pointer; color:var(--muted); transition:all .18s; }
+.chip:hover { transform:translateY(-1px); color:var(--ink); }
+.chip.on { background:var(--brand); border-color:var(--brand); color:var(--on-brand); }
+
+.table-wrap { overflow:auto; max-height:520px; border-radius:18px; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow); margin-bottom:1rem; }
+table { width:100%; border-collapse:collapse; font-size:.92rem; }
+th { position:sticky; top:0; z-index:1; text-align:left; padding:.7rem .9rem; background:var(--surface-2); color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; }
+td { padding:.62rem .9rem; border-top:1px solid var(--line); overflow-wrap:anywhere; }
+tbody tr { animation:rowIn .35s var(--ease) both; transition:background .15s; }
+tbody tr.click { cursor:pointer; }
+tbody tr.click:hover,tbody tr.click:focus-visible { background:var(--surface-2); }
+tr.flash td { animation:flash 1s var(--ease); }
+@keyframes flash { 0%,30% { background:color-mix(in srgb,var(--brand) 22%,transparent); } }
+@keyframes rowIn { from { opacity:0; transform:translateY(7px); } }
+.empty { text-align:center; padding:2.6rem 1rem; color:var(--muted); }
+.empty b { display:block; font-size:2rem; margin-bottom:.3rem; }
+
+.scrim { position:fixed; inset:0; background:rgba(6,10,24,.5); opacity:0; pointer-events:none; transition:opacity .25s; z-index:40; }
+.scrim.on { opacity:1; pointer-events:auto; }
+.drawer { position:fixed; top:0; right:0; bottom:0; width:min(560px,100%); background:var(--surface); box-shadow:-20px 0 50px rgba(0,0,0,.25); padding:1.4rem 1.5rem 2rem; overflow:auto; transform:translateX(102%); transition:transform .35s var(--ease); z-index:41; visibility:hidden; }
+.drawer.on { transform:none; visibility:visible; }
+.drawer h2 { font-size:1.45rem; font-weight:800; }
+.reply { white-space:pre-wrap; background:var(--surface-2); border-left:4px solid var(--brand); border-radius:12px; padding:1rem 1.1rem; line-height:1.55; overflow-wrap:anywhere; }
+.option { display:flex; gap:.8rem; align-items:flex-start; padding:.7rem .85rem; border:1px solid var(--line); border-radius:13px; margin-bottom:.45rem; animation:rise .4s var(--ease) both; }
+.option > b { display:grid; place-items:center; flex:none; width:30px; height:30px; border-radius:9px; color:var(--on-brand); background:linear-gradient(120deg,var(--brand),var(--brand-2)); }
+
+.uni { display:grid; grid-template-columns:minmax(120px,210px) minmax(0,1fr) auto; gap:.9rem; align-items:center; padding:.72rem 0; border-top:1px solid var(--line); animation:rise .45s var(--ease) both; }
+.uni:first-child { border-top:0; }
+.bar { position:relative; height:14px; border-radius:99px; background:var(--plain-bg); overflow:hidden; }
+.bar i { position:absolute; inset:0 auto 0 0; border-radius:99px; background:var(--c,var(--brand)); width:0; transition:width .9s var(--ease); }
+
+.two { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1rem; }
+label.field { display:grid; gap:.25rem; font-weight:650; font-size:.88rem; }
+input.text,select,textarea { width:100%; padding:.58rem .75rem; border-radius:11px; background:var(--surface-2); border:1px solid var(--line); font-weight:500; }
+textarea { min-height:140px; resize:vertical; line-height:1.45; }
+.filled { animation:filled 1s var(--ease); }
+@keyframes filled { 0%,30% { box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 55%,transparent); background:color-mix(in srgb,var(--brand) 14%,var(--surface-2)); } }
+.country-grid { display:flex; flex-wrap:wrap; gap:.35rem; }
+
+.chat { display:flex; flex-direction:column; min-height:430px; }
+.messages { flex:1; display:flex; flex-direction:column; gap:.7rem; max-height:440px; overflow:auto; padding:.3rem .2rem 1rem; }
+.bubble { max-width:82%; padding:.68rem .95rem; border-radius:16px; animation:bubble .3s var(--ease); overflow-wrap:anywhere; }
+.bubble.me { align-self:flex-end; color:var(--on-brand); background:linear-gradient(120deg,var(--brand),var(--brand-2)); border-bottom-right-radius:4px; }
+.bubble.bot { align-self:flex-start; background:var(--surface-2); border-bottom-left-radius:4px; }
+.bubble small { display:block; margin-top:.3rem; font-weight:700; }
+@keyframes bubble { from { opacity:0; transform:translateY(10px) scale(.97); } }
+.dots i { display:inline-block; width:7px; height:7px; margin:0 2px; border-radius:50%; background:var(--muted); animation:dot 1s infinite; }
+.dots i:nth-child(2) { animation-delay:.15s; } .dots i:nth-child(3) { animation-delay:.3s; }
+@keyframes dot { 0%,60%,100% { transform:none; opacity:.4; } 30% { transform:translateY(-5px); opacity:1; } }
+.ask-row { display:flex; gap:.5rem; }
+.ask-row input { flex:1; min-width:0; }
+
+.students { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:.9rem; margin-bottom:1rem; }
+.student { margin:0; transition:transform .2s var(--ease); }
+.student:hover { transform:translateY(-3px); }
+.student h3 { font-size:1.05rem; margin-bottom:.4rem; }
+
+.doc { position:relative; overflow:hidden; background:var(--surface-2); border-radius:14px; padding:1.1rem; line-height:1.8; min-height:220px; }
+.scan { position:absolute; left:0; right:0; top:-6px; height:5px; background:var(--bad); box-shadow:0 0 22px 7px var(--bad); opacity:0; }
+.scan.go { animation:scan 1.3s ease-in-out; }
+@keyframes scan { 0% { top:0; opacity:1; } 95% { top:100%; opacity:1; } 100% { top:100%; opacity:0; } }
+.hidden-text { display:block; padding:.55rem .75rem; margin-top:.7rem; border-radius:10px; font-weight:750; color:var(--bad); background:var(--bad-bg); animation:bubble .45s var(--ease); }
+
+.toast { position:fixed; left:50%; bottom:1.5rem; transform:translate(-50%,30px); background:var(--ink); color:var(--bg); padding:.65rem 1.1rem; border-radius:12px; font-weight:650; box-shadow:var(--shadow); opacity:0; transition:all .3s var(--ease); pointer-events:none; z-index:50; max-width:calc(100vw - 32px); }
+.toast.on { opacity:1; transform:translate(-50%,0); }
+.tick { display:inline-block; animation:pop .45s var(--ease); }
+@keyframes pop { 0% { transform:scale(0) rotate(-30deg); } 70% { transform:scale(1.35); } }
+
+@media (max-width:860px) {
+  .shell { display:block; }
+  .side { position:sticky; z-index:30; height:auto; flex-direction:row; align-items:center; overflow-x:auto; padding:.5rem 16px; border-right:0; border-bottom:1px solid var(--line); background:var(--surface); }
+  .logo,.side-foot,.marker { display:none; }
+  .nav { width:auto; flex:none; padding:.45rem .7rem; }
+  .nav:hover { transform:none; }
+  .nav.on { background:linear-gradient(120deg,var(--brand),var(--brand-2)); }
+  .main { padding:1.1rem 16px 3rem; }
+  .two,.controls { grid-template-columns:minmax(0,1fr); }
+  .uni { grid-template-columns:minmax(0,1fr) auto; }
+  .uni .bar { grid-column:1/-1; grid-row:2; }
+  .bubble { max-width:92%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  .mail { display:none; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side" aria-label="Main">
+    <div class="logo"><i aria-hidden="true">📬</i>Erasmus Inbox Agent</div>
+    <div class="marker" id="marker" aria-hidden="true"></div>
+    <nav id="nav" style="display:contents"></nav>
+    <div class="side-foot">
+      <button class="btn" id="theme" type="button">Switch theme</button>
+      <span>Sample data for demonstration. The agent can't send email.</span>
+    </div>
+  </aside>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Email details"></aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const PAGES = [["overview","🏠","Overview"],["applications","📥","Applications"],["places","🎓","University places"],["advice","🎯","Applicant advice"],["chat","💬","FAQ chatbot"],["documents","🗂️","Document tracking"],["person","🙋","Needs a person"]];
+const DECISIONS = {eligible:"✓ Eligible",not_eligible:"✕ Not eligible",needs_info:"? Needs details",review:"! Needs a person",other:"– Not an application"};
+const SAMPLE = "Hi, I'm Marta Greco and I'd like to apply for Erasmus. My average last semester was 8.3 and I have no failed subjects. I study Business, my English is B2, and I'd love to go to Italy or Denmark.\nMarta Greco\nmarta.greco@student.example";
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (s, root=document) => root.querySelector(s);
+const main = $("#main");
+let S = null, page = "overview", filter = "all", running = false, chatLog = [], shown = {};
+
+// Email content is untrusted, so everything from the server goes through esc.
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pill = d => `<span class="pill ${esc(d)}">${esc(DECISIONS[d] || d)}</span>`;
+
+async function api(path, body) {
+  const options = body === undefined ? {} : {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)};
+  const response = await fetch(path, options);
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(typeof data.detail === "string" ? data.detail : "That didn't work. Please check the details and try again.");
+  return data;
+}
+function toast(text) {
+  const t = $("#toast"); t.textContent = text; t.classList.add("on");
+  clearTimeout(toast.timer); toast.timer = setTimeout(() => t.classList.remove("on"), 3400);
+}
+const safely = fn => async (...args) => { try { return await fn(...args); } catch (error) { toast(error.message); } };
+
+function countTo(el, value) {
+  const start = Number(el.dataset.value ?? 0);
+  el.dataset.value = value;
+  if (reduced || start === value) { el.textContent = value; return; }
+  const began = performance.now();
+  const step = now => {
+    const p = Math.min((now - began) / 550, 1);
+    el.textContent = Math.round(start + (value - start) * (1 - Math.pow(1 - p, 3)));
+    if (p < 1 && el.dataset.value == value) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+function statsHtml() {
+  const items = [["total","Applications read","var(--brand)"],["eligible","Eligible, options ready","var(--good)"],["not_eligible","Not eligible","var(--bad)"],["needs_info","Needs details","var(--ask)"],["person","Needs a person","var(--person)"]];
+  return `<div class="stats">${items.map(([k,label,c],i) => `<div class="stat" style="--c:${c};animation-delay:${i*60}ms"><b data-count="${k}">${shown[k] ?? 0}</b><span>${label}</span></div>`).join("")}</div>`;
+}
+function updateStats(counts=S.counts) {
+  document.querySelectorAll("[data-count]").forEach(el => {
+    const key = el.dataset.count;
+    if (el.dataset.value === undefined) el.dataset.value = shown[key] ?? 0;
+    countTo(el, counts[key] ?? 0);
+  });
+  shown = {...counts};
+}
+function sampleNote() { return `<span class="sample">Sample data for demonstration</span>`; }
+function head(title, text) { return `<div class="page-head"><div><h1>${title}</h1><p>${text}</p></div>${sampleNote()}</div>`; }
+function empty(text) {
+  return `<div class="card empty"><b aria-hidden="true">📭</b>${esc(text)}<div class="row" style="justify-content:center;margin-top:.9rem"><button class="btn primary" data-go="overview" type="button">Go to Overview</button></div></div>`;
+}
+
+const VIEWS = {
+  overview() {
+    const score = S.score ? `Measured on 100 fake emails against our own answer key: ${esc(S.score.decisions_right)}/${esc(S.score.decisions_total)} decisions correct. The real Gemini run took about ${Math.round(S.score.seconds/60)} minutes.` : "";
+    const done = S.counts.total >= 100;
+    const mails = [["#34d399",0],["#f87171",1.2],["#34d399",2.4],["#fbbf24",3.6],["#34d399",4.8],["#60a5fa",6]].map(([c,d]) => `<i class="mail" style="--dot:${c};animation-delay:${d}s"></i>`).join("");
+    return `<section class="hero">
+      <h1>Every student gets an answer. A person stays in charge.</h1>
+      <p>The agent reads Erasmus applications, checks them against the office rules and drafts each reply. The coordinator approves what goes out.</p>
+      <div class="row">
+        <button class="btn primary" id="process" type="button">▶ Read inbox and process applications</button>
+        ${S.live_available ? `<label class="btn ghost switch"><input type="checkbox" id="live"> Use Live Gemini (about 5 min)</label>` : ""}
+        <button class="btn ghost" id="reset" type="button">↺ Start over</button>
+      </div>
+      <div class="flow" aria-hidden="true"><div class="flow-line"></div>
+        <div class="stage" style="left:16%">Gemini reads<b>📖</b></div><div class="stage" style="left:50%">Rules decide<b>⚖️</b></div><div class="stage" style="left:84%">A person approves<b>✅</b></div>
+        ${mails}
+      </div>
+    </section>
+    ${statsHtml()}
+    <div class="card" id="run-card" ${running ? "" : "hidden"}>
+      <h2 id="run-title">Reading the inbox...</h2>
+      <div class="progress"><div id="bar"></div></div>
+      <div id="feed" aria-live="off"></div>
+      <p class="note" id="run-note"></p>
+    </div>
+    <div class="card"><h2>${done ? "All applications are decided" : "What happens when you press the button"}</h2>
+      <p class="muted" style="margin:0">${done ? "Check the decisions, then approve the replies. Nothing has been sent." : "Each email and attachment is read, checked against the rules and given a drafted reply. Doubtful emails go to a person."}</p>
+      <div class="row" style="margin-top:.8rem">${done ? `<button class="btn primary" data-go="applications" type="button">Review applications →</button>` : ""}</div>
+      ${score ? `<p class="note">${score}</p>` : ""}
+    </div>`;
+  },
+
+  applications() {
+    if (!S.counts.total) return head("Applications","Every decision, its reason and its drafted reply.") + empty("Process the inbox first to see the applications here.");
+    const r = S.rules;
+    const waiting = d => S.records.filter(x => x.decision === d && !x.approved).length;
+    const chips = [["all","All"],["eligible","Eligible"],["not_eligible","Not eligible"],["needs_info","Needs details"],["review","Needs a person"],["other","Not an application"]];
+    return head("Applications","Every decision, its reason and its drafted reply.") + statsHtml() + `
+    <div class="card controls">
+      <div><div class="slider-head"><label for="min">Office rule: minimum average</label><b id="min-value">${esc(r.min_average)}</b></div>
+        <input type="range" id="min" min="5" max="9" step="0.1" value="${esc(r.min_average)}"></div>
+      <label class="switch"><input type="checkbox" id="allow" ${r.allow_failed_subjects ? "checked" : ""}> Allow failed subjects</label>
+    </div>
+    <div class="card"><h2>Approve replies</h2>
+      <div class="row">
+        <button class="btn primary" data-approve="eligible" type="button" ${waiting("eligible") ? "" : "disabled"}>Approve all eligible (${waiting("eligible")})</button>
+        <button class="btn" data-approve="needs_info" type="button" ${waiting("needs_info") ? "" : "disabled"}>Approve detail requests (${waiting("needs_info")})</button>
+        <label class="switch small"><input type="checkbox" id="checked-rejected"> I've checked the not eligible replies</label>
+        <button class="btn" data-approve="not_eligible" type="button" disabled>Approve not eligible (${waiting("not_eligible")})</button>
+      </div>
+      <p class="note">Approving marks a reply as ready. Nothing has been sent, and the agent can't send email.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Filter by decision">${chips.map(([k,l]) => `<button type="button" class="chip ${filter===k?"on":""}" data-filter="${k}" aria-pressed="${filter===k}">${l}</button>`).join("")}</div>
+    <div class="table-wrap" id="table">${tableHtml()}</div>`;
+  },
+
+  places() {
+    if (!S.counts.total) return head("University places","Places against demand.") + empty("Process the inbox first to see demand for each university.");
+    const unis = [...S.places.universities].sort((a,b) => (b.first_choice-b.places) - (a.first_choice-a.places));
+    const top = Math.max(1, ...unis.map(u => Math.max(u.first_choice,u.places)));
+    return head("University places","Where demand is higher than the places available.") + `
+    <div class="stats"><div class="stat" style="--c:var(--good)"><b>${esc(S.places.placed)}</b><span>Could get a place</span></div>
+      <div class="stat" style="--c:var(--ask)"><b>${esc(S.places.waiting)}</b><span>Eligible, but no place left</span></div></div>
+    <div class="card"><h2>Top-choice demand and places</h2>
+      ${unis.map((u,i) => {
+        const hot = u.first_choice > u.places;
+        return `<div class="uni" style="animation-delay:${i*40}ms"><div><b>${esc(u.university)}</b><div class="small muted">${esc(u.places)} places · ${esc(u.filled)} filled${u.lowest!=null?` · lowest ${esc(u.lowest)}`:""}</div></div>
+        <div class="bar" title="Top choice for ${esc(u.first_choice)} students"><i data-w="${u.first_choice/top*100}" style="--c:${hot?"var(--bad)":"var(--good)"}"></i></div>
+        ${u.tie ? `<span class="pill ask">⚠ Tie at the cut-off</span>` : hot ? `<span class="pill bad">▲ More demand than places</span>` : `<span class="pill good">✓ OK</span>`}</div>`;
+      }).join("")}
+      <p class="note">A preview: highest average first, using the options the agent ranked. Students haven't chosen yet, and staff decide the real allocation. Universities and places are sample data.</p>
+    </div>`;
+  },
+
+  advice() {
+    return head("Applicant advice","Paste one email, and the form fills itself. Staff check it before anything else happens.") + `
+    <div class="two">
+      <div class="card"><h2>1 · The student's email</h2>
+        <label class="field" for="pasted">Paste the email<textarea id="pasted" maxlength="20000" placeholder="Paste a student's email here"></textarea></label>
+        <div class="row" style="margin-top:.7rem"><button class="btn primary" id="read" type="button">✨ Read email and fill the form</button><button class="btn" id="sample" type="button">Use a sample email</button></div>
+        <div id="read-result" class="note" role="status"></div>
+      </div>
+      <div class="card"><h2>2 · Check the details</h2>
+        <div class="two" style="gap:.65rem">
+          <label class="field">First name<input class="text" id="f-name" maxlength="100"></label>
+          <label class="field">Email<input class="text" id="f-email" maxlength="200"></label>
+          <label class="field">Average grade (0 to 10)<input class="text" id="f-grade" type="number" min="0" max="10" step="0.1"></label>
+          <label class="field">Field of study<select id="f-field"><option value="">Choose</option>${S.fields.map(x => `<option>${esc(x)}</option>`).join("")}</select></label>
+          <label class="field">English level<select id="f-level"><option value="">Choose</option>${S.levels.map(x => `<option>${esc(x)}</option>`).join("")}</select></label>
+          <label class="field">Failed any subject?<select id="f-failed"><option>Not known</option><option>No</option><option>Yes</option></select></label>
+        </div>
+        <label class="field" style="margin-top:.65rem">Failed subjects, if any<input class="text" id="f-names" maxlength="500"></label>
+        <div class="field" style="margin-top:.65rem">Where they want to go
+          <div class="country-grid" id="f-countries" role="group" aria-label="Preferred countries">${S.countries.map(c => `<button type="button" class="chip" data-country="${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("")}</div></div>
+        <button class="btn primary" id="check" type="button" style="margin-top:.9rem">Check eligibility and find options</button>
+      </div>
+    </div>
+    <div id="advice-result"></div>`;
+  },
+
+  chat() {
+    return head("FAQ chatbot","Answers only from the office FAQ, in the student's language. Anything else goes to staff.") + `
+    <div class="card chat">
+      <div class="chips">${S.questions.map(q => `<button type="button" class="chip" data-question="${esc(q)}">${esc(q)}</button>`).join("")}</div>
+      <div class="messages" id="messages" aria-live="polite">${chatLog.length ? chatLog.map(bubbleHtml).join("") : `<div class="bubble bot">Hi! Ask me anything about applying for Erasmus, in any language.</div>`}</div>
+      <form class="ask-row" id="ask"><input class="text" id="question" maxlength="500" placeholder="Ask a question" aria-label="Your question" autocomplete="off"><button class="btn primary" type="submit">Send question</button></form>
+    </div>`;
+  },
+
+  documents() {
+    return head("Document tracking","Messy attachments, filed under one clear name, with each student's status.") + `<div id="docs"><div class="card empty">Loading documents...</div></div>`;
+  },
+
+  person() {
+    if (!S.counts.total) return head("Needs a person","What the agent won't decide alone.") + empty("Process the inbox first to see what needs a person.");
+    const list = S.records.filter(r => r.decision === "review" || r.decision === "other");
+    return head("Needs a person","What the agent won't decide alone.") + `
+    <div class="two">
+      <div class="card"><h2>One student tried to trick the AI</h2>
+        <div id="cheat" class="doc"><div class="scan" id="scan"></div><span class="muted">Loading the transcript...</span></div>
+        <button class="btn primary" id="reveal" type="button" style="margin-top:.8rem" disabled>🔍 Reveal hidden text</button>
+        <div id="caught"></div>
+      </div>
+      <div class="card"><h2>Waiting for a person (${list.length})</h2>
+        <div style="max-height:360px;overflow:auto">${list.map((r,i) => `<div class="feed-row click" tabindex="0" role="button" data-open="${esc(r.id)}" style="cursor:pointer;animation-delay:${i*30}ms"><span><b>${esc(r.name || r.sender)}</b><br><span class="small muted">${esc(r.reason)}</span></span>${pill(r.decision)}</div>`).join("") || `<p class="muted">Nothing is waiting.</p>`}</div>
+      </div>
+    </div>`;
+  },
+};
+
+function tableHtml() {
+  const rows = S.records.filter(r => filter === "all" || r.decision === filter);
+  if (!rows.length) return `<div class="empty">No emails in this group.</div>`;
+  return `<table><thead><tr><th>Student</th><th>Average</th><th>Failed</th><th>Decision</th><th>Reason</th><th>Reply</th></tr></thead><tbody>${rows.map((r,i) => `
+    <tr class="click" tabindex="0" data-open="${esc(r.id)}" data-row="${esc(r.id)}" style="animation-delay:${Math.min(i,14)*22}ms">
+      <td><b>${esc(r.name || r.sender)}</b></td><td>${r.grade == null ? "" : esc(r.grade)}</td><td>${esc((r.failed_subjects || []).join(", "))}</td>
+      <td>${pill(r.decision)}</td><td>${esc(r.reason)}</td>
+      <td>${r.approved ? `<span class="pill good">✓ Approved</span>` : r.decision === "review" || r.decision === "other" ? `<span class="pill plain">No reply</span>` : `<span class="pill info">Draft ready</span>`}</td></tr>`).join("")}</tbody></table>`;
+}
+function bubbleHtml(m) {
+  if (m.me) return `<div class="bubble me">${esc(m.text)}</div>`;
+  return `<div class="bubble bot">${esc(m.text)}<small style="color:${m.known?"var(--good)":"var(--person)"}">${m.known ? `From the FAQ, entry ${esc(m.faq)}` : "Not in the FAQ, so it goes to a person"}</small>${m.english ? `<small class="muted" style="font-weight:500">English: ${esc(m.english)}</small>` : ""}</div>`;
+}
+
+function render(name=page) {
+  page = name;
+  main.innerHTML = VIEWS[page]();
+  document.querySelectorAll(".nav").forEach((b,i) => {
+    const on = b.dataset.page === page;
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-current", on ? "page" : "false");
+    if (on) $("#marker").style.transform = `translateY(${b.offsetTop}px)`;
+  });
+  try { localStorage.setItem("page", page); } catch {}
+  document.querySelectorAll(".bar i").forEach(i => requestAnimationFrame(() => requestAnimationFrame(() => i.style.width = i.dataset.w + "%")));
+  document.querySelectorAll("[data-count]").forEach(el => { el.dataset.value = shown[el.dataset.count] ?? 0; });
+  updateStats();
+  if (page === "documents") loadDocuments();
+  if (page === "person" && S.counts.total) loadCheat();
+}
+function setState(next) { S = {...S, ...next}; }
+
+async function refresh() { S = await api("/api/state"); }
+
+const process = safely(async () => {
+  if (running) return;
+  const live = $("#live")?.checked;
+  running = true;
+  $("#run-card").hidden = false; $("#process").disabled = true;
+  const response = await fetch(`/api/process?mode=${live ? "live" : "replay"}`, {method:"POST"});
+  if (!response.ok) { running = false; $("#process").disabled = false; throw new Error((await response.json()).detail); }
+  const reader = response.body.getReader(), decoder = new TextDecoder();
+  let buffer = "";
+  try {
+    for (;;) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, {stream:true});
+      const lines = buffer.split("\n"); buffer = lines.pop();
+      for (const line of lines) if (line.trim()) tick(JSON.parse(line), live);
+    }
+  } finally {
+    running = false;
+    await refresh();
+    if (page === "overview") render();
+  }
+});
+function tick(m, live) {
+  if (m.error) { toast(m.error); return; }
+  if (m.finished) { toast(S.counts?.total ? "All done. Nothing has been sent." : "Done."); return; }
+  if (page !== "overview") return;
+  $("#run-title").textContent = `${m.done} of ${m.total} applications read`;
+  $("#bar").style.width = `${m.done / m.total * 100}%`;
+  $("#run-note").textContent = live ? "Live Gemini run." : "Playing back a saved real Gemini run, sped up for this demo.";
+  const row = document.createElement("div");
+  row.className = "feed-row";
+  row.innerHTML = `<span><b>${esc(m.record.name || m.record.sender)}</b></span>${pill(m.record.decision)}`;
+  const feed = $("#feed"); feed.prepend(row);
+  while (feed.children.length > 4) feed.lastChild.remove();
+  updateStats(m.counts);
+}
+
+const applyRules = safely(async () => {
+  const before = Object.fromEntries(S.records.map(r => [r.id, r.decision]));
+  const next = await api("/api/rules", {min_average:Number($("#min").value), allow_failed_subjects:$("#allow").checked});
+  S = next;
+  if (page !== "applications") return;
+  updateStats();
+  $("#table").innerHTML = tableHtml();
+  S.records.forEach(r => { if (before[r.id] !== r.decision) document.querySelector(`[data-row="${CSS.escape(r.id)}"]`)?.classList.add("flash"); });
+  toast(`${next.changed} decisions changed, with no new AI calls. Changed replies need approving again.`);
+  document.querySelectorAll("[data-approve]").forEach(b => {
+    const n = S.records.filter(x => x.decision === b.dataset.approve && !x.approved).length;
+    b.textContent = b.textContent.replace(/\(\d+\)/, `(${n})`);
+    if (b.dataset.approve !== "not_eligible") b.disabled = !n;
+  });
+});
+
+const openRecord = safely(async id => {
+  const r = await api(`/api/record/${encodeURIComponent(id)}`);
+  const d = $("#drawer");
+  const canApprove = r.body && !r.approved;
+  d.innerHTML = `<div class="row" style="justify-content:space-between"><div>${pill(r.decision)}</div><button class="btn" id="close" type="button">Close</button></div>
+    <h2 style="margin:.8rem 0 .2rem">${esc(r.name || r.sender)}</h2>
+    <p class="muted small" style="margin:0 0 .8rem">${esc(r.sender)} · ${esc(r.subject)}</p>
+    <p><b>Why:</b> ${esc(r.reason)}</p>
+    ${r.quote ? `<p class="small muted">Grade from the email: “${esc(r.quote)}”</p>` : ""}
+    ${(r.options || []).length ? `<h3 style="margin:1rem 0 .5rem">Best options</h3>${optionsHtml(r.options)}` : ""}
+    ${r.body ? `<h3 style="margin:1rem 0 .5rem">Drafted reply</h3><div class="reply">${esc(r.body)}</div>
+      ${r.body !== r.body_english ? `<details style="margin-top:.6rem"><summary>English copy for staff</summary><div class="reply" style="margin-top:.5rem">${esc(r.body_english)}</div></details>` : ""}` : `<p class="muted">No automatic reply. A person should handle this email.</p>`}
+    <div style="margin-top:1rem">${r.approved ? `<p><span class="tick">✅</span> <b>Approved. Nothing has been sent.</b></p>` : canApprove ? `
+      ${r.decision === "not_eligible" ? `<label class="switch small" style="margin-bottom:.5rem"><input type="checkbox" id="one-checked"> I've checked this reply</label>` : ""}
+      <button class="btn primary" id="one-approve" type="button" ${r.decision === "not_eligible" ? "disabled" : ""}>Approve this reply</button>` : ""}</div>`;
+  $("#scrim").classList.add("on"); d.classList.add("on"); $("#close").focus();
+  $("#one-checked")?.addEventListener("change", e => { $("#one-approve").disabled = !e.target.checked; });
+  $("#one-approve")?.addEventListener("click", safely(async () => {
+    S = await api("/api/approve", {id, checked:r.decision !== "not_eligible" || $("#one-checked").checked});
+    toast("Approved. Nothing has been sent.");
+    closeDrawer(); if (page === "applications") render();
+  }));
+  $("#close").addEventListener("click", closeDrawer);
+});
+function closeDrawer() { $("#drawer").classList.remove("on"); $("#scrim").classList.remove("on"); }
+function optionsHtml(options) {
+  return options.map((o,i) => `<div class="option" style="animation-delay:${i*70}ms"><b>${i+1}</b><div><strong>${esc(o.university)}</strong> · ${esc(o.city)}, ${esc(o.country)} <span class="pill ${o.fit==="Reach"?"ask":o.fit==="Strong match"?"good":"info"}">${esc(o.fit)}</span>
+    <div class="small muted">${(o.reasons||[]).map(esc).join(" · ")}</div></div></div>`).join("");
+}
+
+const fillForm = safely(async () => {
+  const text = $("#pasted").value.trim();
+  if (!text) { toast("Paste an email first."); return; }
+  const result = $("#read-result"), button = $("#read");
+  button.disabled = true; result.textContent = "Reading the email...";
+  $("#advice-result").innerHTML = "";
+  try {
+    const f = await api("/api/advice/read", {text});
+    if (f.error) { result.innerHTML = `<span class="pill bad">✕ Nothing filled in</span> ${esc(f.error)}`; return; }
+    formLanguage = f.language;
+    const steps = [["#f-name",f.first_name],["#f-email",f.email],["#f-grade",f.grade],["#f-field",f.field],["#f-level",f.level],["#f-failed",f.failed_status],["#f-names",f.failed_subjects]];
+    for (const [selector, value] of steps) {
+      const el = $(selector); if (!el) return;
+      el.value = value ?? ""; el.classList.remove("filled"); void el.offsetWidth; el.classList.add("filled");
+      if (!reduced) await new Promise(r => setTimeout(r, 170));
+    }
+    document.querySelectorAll("[data-country]").forEach(c => setCountry(c, f.countries.includes(c.dataset.country)));
+    const blanks = [["average grade",f.grade],["field of study",f.field],["English level",f.level]].filter(([,v]) => v == null).map(([n]) => n);
+    result.innerHTML = `<span class="pill good">✓ Form filled</span> Please check the details.${f.quote ? ` Grade from the email: “${esc(f.quote)}”.` : ""}${blanks.length ? ` <b>Not found: ${esc(blanks.join(", "))}.</b>` : ""}`;
+  } finally { button.disabled = false; }
+});
+let formLanguage = "en";
+function setCountry(chip, on) { chip.classList.toggle("on", on); chip.setAttribute("aria-pressed", on); }
+
+const checkAdvice = safely(async () => {
+  const grade = $("#f-grade").value, field = $("#f-field").value, level = $("#f-level").value;
+  if (grade === "" || !field || !level) { toast("Please fill in the grade, field of study and English level."); return; }
+  const a = await api("/api/advice/check", {
+    first_name:$("#f-name").value, grade:Number(grade), failed_status:$("#f-failed").value, failed_subjects:$("#f-names").value, field, level,
+    countries:[...document.querySelectorAll("[data-country].on")].map(c => c.dataset.country), language:formLanguage,
+  });
+  const titles = {eligible:["good","✓ Eligible"],not_eligible:["bad",`✕ Not eligible. ${a.reason}.`],needs_info:["ask","? We need to know whether the student failed any subject"],review:["info","! Eligible, but no partner fits. A person should help."]};
+  const [kind,title] = titles[a.decision];
+  $("#advice-result").innerHTML = `<div class="card"><p><span class="pill ${kind}" style="font-size:.95rem;white-space:normal">${esc(title)}</span></p>
+    ${a.no_preferred_match && a.decision === "eligible" ? `<p class="muted">Nothing suitable in the preferred countries, so these are the closest alternatives.</p>` : ""}
+    ${(a.options||[]).length ? optionsHtml(a.options) : ""}
+    ${(a.ruled_out||[]).length ? `<details style="margin:.6rem 0"><summary>Ruled out (${a.ruled_out.length})</summary><ul>${a.ruled_out.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
+    ${a.body ? `<h2 style="margin-top:1rem">Draft for staff to review</h2><div class="reply">${esc(a.body)}</div>${a.body !== a.body_english ? `<details style="margin-top:.6rem"><summary>English copy for staff</summary><div class="reply" style="margin-top:.5rem">${esc(a.body_english)}</div></details>` : ""}<p class="note">Nothing has been sent.</p>` : ""}</div>`;
+  $("#advice-result").scrollIntoView({behavior:reduced?"auto":"smooth", block:"nearest"});
+});
+
+const askQuestion = safely(async text => {
+  text = text.trim(); if (!text) return;
+  chatLog.push({me:true, text});
+  const box = $("#messages");
+  if (chatLog.length === 1) box.innerHTML = "";
+  box.insertAdjacentHTML("beforeend", bubbleHtml({me:true, text}) + `<div class="bubble bot dots" id="typing" aria-label="Checking the FAQ"><i></i><i></i><i></i></div>`);
+  box.scrollTop = box.scrollHeight;
+  try {
+    const a = await api("/api/chat", {question:text});
+    const m = {text:a.reply, known:a.can_answer, faq:a.faq_id, english:a.can_answer && a.english !== a.reply ? a.english : ""};
+    chatLog.push(m);
+    if (page !== "chat") return;
+    $("#typing")?.remove();
+    $("#messages").insertAdjacentHTML("beforeend", bubbleHtml(m));
+    $("#messages").scrollTop = $("#messages").scrollHeight;
+  } catch (error) { $("#typing")?.remove(); throw error; }
+});
+
+const loadDocuments = safely(async () => {
+  const d = await api("/api/documents");
+  if (page !== "documents") return;
+  const levels = {red:["bad","! Action needed"],amber:["ask","? Missing documents"],green:["good","✓ Ready"]};
+  const results = {filed:["good","✓ Filed"],review:["bad","! Held for review"],answered:["info","Answer drafted"],handoff:["ask","Passed to staff"]};
+  if (!d.items.length && !d.students.length) { $("#docs").innerHTML = `<div class="card empty"><b aria-hidden="true">📭</b>No documents yet. Process the sample inbox in the dashboard's "Inbox to filed" tab.</div>`; return; }
+  $("#docs").innerHTML = `<div class="students">${d.students.map((s,i) => {
+    const [kind,label] = levels[s.level];
+    return `<div class="card student" style="animation-delay:${i*50}ms"><h3>${esc(s.name)}</h3><span class="pill ${kind}">${label}</span>
+      <p class="small" style="margin:.5rem 0">${esc(s.summary)}</p>
+      <p class="small muted" style="margin:0">${s.university ? esc(s.university) + "<br>" : ""}Received: ${esc(s.documents.join(", ") || "none")}${s.deadline ? `<br>Next deadline: ${esc(s.deadline.date)}, ${esc(s.deadline.document)}${s.deadline.overdue ? " (overdue)" : ""}` : ""}</p></div>`;
+  }).join("")}</div>
+  <div class="table-wrap"><table><thead><tr><th>Email</th><th>Original file</th><th>Document found</th><th>New name</th><th>Result</th></tr></thead><tbody>${d.items.map((x,i) => {
+    const [kind,label] = x.resolved ? ["good","✓ Resolved by staff"] : results[x.status] || ["plain",x.status];
+    return `<tr style="animation-delay:${Math.min(i,14)*25}ms"><td>${esc(x.sender)}</td><td>${esc(x.original)}</td><td>${esc(x.document)}</td><td><b>${esc(x.status === "review" ? "Held for review" : x.new_name)}</b></td><td><span class="pill ${kind}">${label}</span></td></tr>`;
+  }).join("")}</tbody></table></div>`;
+});
+
+const loadCheat = safely(async () => {
+  const c = await api("/api/cheat");
+  if (page !== "person") return;
+  const box = $("#cheat");
+  if (!c.found) { box.innerHTML = `<span class="muted">No hidden instructions were found in this run.</span>`; return; }
+  box.innerHTML = `<div class="scan" id="scan"></div>${c.visible.map(l => `<div>${esc(l)}</div>`).join("")}`;
+  const button = $("#reveal"); button.disabled = false;
+  button.addEventListener("click", () => {
+    button.disabled = true;
+    $("#scan").classList.add("go");
+    setTimeout(() => {
+      if (page !== "person") return;
+      c.hidden.forEach(l => box.insertAdjacentHTML("beforeend", `<span class="hidden-text">${esc(l)}</span>`));
+      $("#caught").innerHTML = `<p style="margin:.8rem 0 0"><span class="tick">🛡️</span> <b>Caught.</b> Sent to a person, and no reply was drafted.</p>`;
+    }, reduced ? 0 : 1250);
+  });
+});
+
+// Clicks and inputs are handled once here, because pages are redrawn often.
+main.addEventListener("click", e => {
+  const t = e.target.closest("button,[data-open]");
+  if (!t) return;
+  if (t.dataset.go) render(t.dataset.go);
+  else if (t.id === "process") process();
+  else if (t.id === "reset") safely(async () => { S = await api("/api/reset", {}); shown = {}; filter = "all"; render(); toast("Started over."); })();
+  else if (t.dataset.filter) { filter = t.dataset.filter; document.querySelectorAll("[data-filter]").forEach(c => { const on = c === t; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); }); $("#table").innerHTML = tableHtml(); }
+  else if (t.dataset.open) openRecord(t.dataset.open);
+  else if (t.dataset.approve) safely(async () => {
+    const decision = t.dataset.approve;
+    const next = await api("/api/approve", {decision, checked:decision !== "not_eligible" || $("#checked-rejected").checked});
+    S = next; render(); toast(`✅ ${next.approved_now} replies approved. Nothing has been sent.`);
+  })();
+  else if (t.id === "sample") { $("#pasted").value = SAMPLE; }
+  else if (t.id === "read") fillForm();
+  else if (t.id === "check") checkAdvice();
+  else if (t.dataset.country) setCountry(t, !t.classList.contains("on"));
+  else if (t.dataset.question) askQuestion(t.dataset.question);
+});
+main.addEventListener("keydown", e => {
+  const t = e.target.closest("[data-open]");
+  if (t && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openRecord(t.dataset.open); }
+});
+main.addEventListener("submit", e => {
+  e.preventDefault();
+  const input = $("#question"); askQuestion(input.value); input.value = "";
+});
+main.addEventListener("input", e => {
+  if (e.target.id === "min") { $("#min-value").textContent = Number(e.target.value).toFixed(1).replace(/\.0$/, ""); clearTimeout(applyRules.timer); applyRules.timer = setTimeout(applyRules, 180); }
+});
+main.addEventListener("change", e => {
+  if (e.target.id === "allow") applyRules();
+  if (e.target.id === "checked-rejected") { const b = $('[data-approve="not_eligible"]'); b.disabled = !e.target.checked || !S.records.some(x => x.decision === "not_eligible" && !x.approved); }
+});
+$("#scrim").addEventListener("click", closeDrawer);
+addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  try { localStorage.setItem("theme", theme); } catch {}
+}
+$("#theme").addEventListener("click", () => {
+  const current = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  setTheme(current === "dark" ? "light" : "dark");
+});
+
+(async () => {
+  try { const saved = localStorage.getItem("theme"); if (saved) document.documentElement.dataset.theme = saved; } catch {}
+  $("#nav").innerHTML = PAGES.map(([id,icon,label]) => `<button class="nav" type="button" data-page="${id}"><span aria-hidden="true">${icon}</span>${label}</button>`).join("");
+  $("#nav").addEventListener("click", e => { const b = e.target.closest(".nav"); if (b) { closeDrawer(); render(b.dataset.page); main.focus({preventScroll:true}); scrollTo({top:0}); } });
+  try {
+    await refresh();
+    let saved = null; try { saved = localStorage.getItem("page"); } catch {}
+    render(VIEWS[saved] ? saved : "overview");
+  } catch { main.innerHTML = `<div class="card empty">The agent isn't responding. Check that web_app.py is running.</div>`; }
+})();
+</script>
+</body>
+</html>

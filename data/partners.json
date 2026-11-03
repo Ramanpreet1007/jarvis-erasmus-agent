@@ -1,0 +1,12 @@
+[
+  {"university": "TU Delft", "city": "Delft", "country": "Netherlands", "fields": ["Engineering", "Computer Science"], "min_grade": 7.5, "language": "English", "min_level": "B2", "places": 4},
+  {"university": "KU Leuven", "city": "Leuven", "country": "Belgium", "fields": ["Engineering", "Business"], "min_grade": 7.0, "language": "English", "min_level": "B2", "places": 6},
+  {"university": "TU Wien", "city": "Vienna", "country": "Austria", "fields": ["Engineering", "Computer Science"], "min_grade": 7.5, "language": "English", "min_level": "B1", "places": 3},
+  {"university": "Politecnico di Milano", "city": "Milan", "country": "Italy", "fields": ["Engineering", "Computer Science"], "min_grade": 7.0, "language": "English", "min_level": "B2", "places": 5},
+  {"university": "Aalto University", "city": "Espoo", "country": "Finland", "fields": ["Engineering", "Computer Science", "Business"], "min_grade": 8.0, "language": "English", "min_level": "C1", "places": 2},
+  {"university": "Universidad de Sevilla", "city": "Seville", "country": "Spain", "fields": ["Engineering", "Business"], "min_grade": 6.5, "language": "English", "min_level": "B1", "places": 8},
+  {"university": "TU Munich", "city": "Munich", "country": "Germany", "fields": ["Engineering", "Computer Science"], "min_grade": 8.5, "language": "English", "min_level": "C1", "places": 2},
+  {"university": "Bocconi University", "city": "Milan", "country": "Italy", "fields": ["Business"], "min_grade": 8.0, "language": "English", "min_level": "B2", "places": 3},
+  {"university": "University of Porto", "city": "Porto", "country": "Portugal", "fields": ["Engineering", "Computer Science", "Business"], "min_grade": 6.5, "language": "English", "min_level": "B1", "places": 7},
+  {"university": "Copenhagen Business School", "city": "Copenhagen", "country": "Denmark", "fields": ["Business"], "min_grade": 7.5, "language": "English", "min_level": "B2", "places": 4}
+]

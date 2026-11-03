@@ -1,0 +1,5 @@
+{
+  "_note": "Sample rules for the demo. Replace with the office's real rules.",
+  "min_average": 6.0,
+  "allow_failed_subjects": false
+}
